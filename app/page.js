@@ -6,18 +6,11 @@ export default function Home() {
   console.log('executing');
   
   return (
-    <div>
-      <main>
-        <Image src="/mercury.png" alt="earth-image" width={100} height={100}/>
-        <Image src="/venus.png" alt="earth-image" width={100} height={100}/>
-        <Image src="/earth.png" alt="earth-image" width={100} height={100}/>
-        <Image src="/mars.png" alt="earth-image" width={100} height={100}/>
-        <Image src="/jupiter.png" alt="earth-image" width={100} height={100}/>
-        <Image src="/saturn.png" alt="earth-image" width={200} height={100}/>
-        <Image src="/uranus.png" alt="earth-image" width={100} height={100}/>
-        <Image src="/neptune.png" alt="earth-image" width={100} height={100}/>
-        <h1>Embark on a Journey Through the Solar System</h1>
-        <div><Link href='/all-planets'>Explore the solar system</Link></div>
+    <div className={classes.homePage}>
+      <main className={classes.homeMain}>
+        <div className={classes.emptyContainer}></div>
+        <h1>Journey Through Space</h1>
+        <div className={classes.linkButton}><Link href='/all-planets'>Explore the solar system</Link></div>
       </main>
       <footer>
         
