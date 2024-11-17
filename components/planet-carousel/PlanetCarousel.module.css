@@ -1,0 +1,120 @@
+.wrapper{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+   
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2rem;
+    width: 50%; 
+}
+
+.content p{
+    color: var(--color2);
+    text-align: justify;
+    margin: 0 2rem;
+    line-height: 1.7rem;
+}
+
+.content h2{
+    padding-bottom: 0.5rem;
+}
+
+.buttons{
+    display: flex;
+    column-gap: 1rem;
+}
+
+
+/* lines */
+
+.mercury{
+    border-bottom: 2px solid #886f5a;   
+}
+
+.venus{
+    border-bottom: 2px solid #9d5c1f;   
+}
+
+.earth{
+    border-bottom: 2px solid #586943;   
+}
+
+.mars{
+    border-bottom: 2px solid #a24338;   
+}
+
+.jupiter{
+    border-bottom: 2px solid #a38e6f;
+}
+
+.saturn{
+    border-bottom: 2px solid #bdab9d;
+}
+
+.uranus{
+    border-bottom: 2px solid #36a1b6;
+}
+
+.neptune{
+    border-bottom: 2px solid #245d9b;
+}
+
+
+/* carousel */
+.carouselContainer{
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    background-color: transparent;
+    z-index: 4;
+}
+
+.carousel{
+    display: flex;
+    column-gap: 3rem;
+    width: 70%;
+    overflow-x: auto;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 2rem;
+    background-color: #22202187;
+    box-shadow: 0 0px 10px 5px var(--color3);
+    border-radius: 5px;
+    width: 15rem;
+    height: 25rem;
+    flex-shrink: 0;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.cardInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1rem;
+}
+
+.cardInfo p{
+    text-align: center;
+    margin: 1rem;
+    color: var(--color2);
+}
+
+
+
+
+
+
+

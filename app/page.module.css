@@ -1,4 +1,4 @@
-.homePage {
+.homePageContainer {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -7,15 +7,15 @@
   background: linear-gradient(
       to bottom,
       var(--background) 0%,
-      var(--background) 10%,
-      transparent 50%
+      var(--background) 3%,
+      transparent 20%
     ),
-    /* linear-gradient(
+    linear-gradient(
       to left, 
       var(--background) 0%, 
       transparent 60%
-    ), */
-    url("/bg.jpg") no-repeat center center fixed;
+    ),
+    url("/background.png") no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -54,9 +54,9 @@
   background: linear-gradient(
     to bottom,
     var(--background) 0%,
-    var(--background) 10%,
-    transparent 30%
-  ),#222021b3;
+    var(--background) 3%,
+    transparent 5%
+  ),#09090924;
 
   height: 100vh;
   width: 30%;
