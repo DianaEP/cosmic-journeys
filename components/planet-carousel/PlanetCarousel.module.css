@@ -69,17 +69,21 @@
 /* carousel */
 .carouselContainer{
     display: flex;
-    justify-content: flex-end;
     width: 50%;
     background-color: transparent;
+    
     z-index: 4;
 }
 
 .carousel{
     display: flex;
-    column-gap: 3rem;
-    width: 70%;
-    overflow-x: auto;
+    width: 100%;
+    height:60vh;
+    /* column-gap: 2rem; */
+    overflow-x: hidden;
+    position: relative;
+    /* width: auto;  */
+    
 }
 
 .card{
@@ -93,10 +97,18 @@
     border-radius: 5px;
     width: 15rem;
     height: 25rem;
-    flex-shrink: 0;
+    /* flex-shrink: 0; */
     margin: 1rem;
+    padding: 1rem;
+    position: absolute; /* This ensures all cards stack on top of each other */
+    top: 0;
+    left: 30%;
+    width: 20rem;
+    height: 30rem;
     cursor: pointer;
+   
 }
+
 
 .cardInfo{
     display: flex;
