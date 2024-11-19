@@ -1,8 +1,8 @@
-const sql = require('better-sqlite3');
+import sql from 'better-sqlite3';
 const db = sql('planets.db')
 
 
-const planetsDetails = [
+export const planetsDetails = [
   {
     title: "Mercury",
     slug: "mercury",
@@ -10,7 +10,7 @@ const planetsDetails = [
     summary:
       "Mercury, the smallest planet in the solar system, is the closest to the Sun. Despite being so near to the Sun, it is not the hottest planet. Mercury has extreme temperature swings due to its lack of atmosphere, which means the surface can reach temperatures of 427°C (800°F) during the day and plunge to -173°C (-280°F) at night. Its surface is rocky and cratered, similar to the Moon, as it has no atmosphere to protect it from impacts.",
     details: {
-      dimension: "4,880 km (diameter)",
+      dimension: "4,880 km",
       rotation: "59 Earth days",
       orbit: "88 Earth days",
       facts: [
@@ -53,7 +53,7 @@ const planetsDetails = [
     summary:
       "Earth is the third planet from the Sun and the only one known to support life. With abundant liquid water, a stable climate, and a breathable atmosphere composed mostly of nitrogen and oxygen, Earth is uniquely suited for life. The planet has a dynamic surface with continents and oceans, and its atmosphere plays a crucial role in regulating temperature and protecting the planet from harmful radiation. Earth's moon, a large natural satellite, plays a significant role in stabilizing Earth's axial tilt and contributing to ocean tides.",
     details: {
-      dimension: "12,742 km (diameter)",
+      dimension: "12,742 km",
       rotation: "24 hours",
       orbit: "365.25 days",
       facts: [
@@ -76,7 +76,7 @@ const planetsDetails = [
     summary:
       "Mars, the 'Red Planet' is known for its reddish hue, caused by iron oxide (rust) on its surface. Mars once had liquid water on its surface and may have had conditions suitable for life billions of years ago, now has polar ice caps made of water and carbon dioxide. Mars is often a target for human exploration and potential colonization.",
     details: {
-      dimension: "6,779 km (diameter)",
+      dimension: "6,779 km",
       rotation: "24.6 hours",
       orbit: "687 Earth days",
       facts: [
@@ -97,7 +97,7 @@ const planetsDetails = [
     summary:
       "Jupiter is the largest planet in the solar system and a gas giant made mostly of hydrogen and helium. Its Great Red Spot is a massive storm that has been raging for over 300 years. Jupiter has a strong magnetic field and dozens of moons, with Ganymede being the largest moon in the solar system. It's a fascinating target for future exploration, particularly its moons, which might harbor subsurface oceans.",
     details: {
-      dimension: "139,820 km (diameter)",
+      dimension: "139,820 km",
       rotation: "9.9 hours",
       orbit: "11.86 Earth years",
       facts: [
@@ -117,7 +117,7 @@ const planetsDetails = [
     summary:
       "Saturn is best known for its breathtaking ring system, which is composed mainly of ice and rock particles. The planet is a gas giant, similar to Jupiter, and is made primarily of hydrogen and helium. Saturn has 146 confirmed moons, with Titan being the largest, and is the second-largest planet in the solar system. Titan, with its thick atmosphere and liquid methane lakes, is considered one of the most Earth-like moons in the solar system.",
     details: {
-      dimension: "116,460 km (diameter)",
+      dimension: "116,460 km",
       rotation: "10.7 hours",
       orbit: "29.5 Earth years",
       facts: [
@@ -137,7 +137,7 @@ const planetsDetails = [
     summary:
       "Uranus is unique due to its extreme axial tilt—about 98 degrees—causing the planet to essentially roll around the Sun on its side. It's an ice giant composed of water, ammonia, and methane, and has a pale blue appearance due to methane in its atmosphere. Uranus has 27 moons and a faint ring system, and its mysterious atmosphere and tilt have made it a target for future exploration.",
     details: {
-      dimension: "50,724 km (diameter)",
+      dimension: "50,724 km",
       rotation: "17.2 hours",
       orbit: "84 Earth years",
       facts: [
@@ -157,9 +157,9 @@ const planetsDetails = [
     summary:
       "Neptune is the eighth and farthest planet from the Sun. Known for its deep blue color, Neptune is another ice giant composed mostly of hydrogen, helium, and methane. Its strong winds make it the windiest planet in the solar system, and it has a system of rings, along with 14 known moons. Triton, Neptune's largest moon, has geysers that suggest an active, subsurface ocean.",
     details: {
-      dimension: "49,244 km (diameter)",
-      rotation: "16.1 hours (rotation period)",
-      orbit: "165 Earth years (orbital period around the Sun)",
+      dimension: "49,244 km",
+      rotation: "16.1 hours",
+      orbit: "165 Earth years",
       facts: [
         "Neptune has the fastest winds in the solar system, reaching speeds of up to 2,100 km/h (1,300 mph).",
         "The planet appears deep blue due to the presence of methane in its atmosphere.",
@@ -236,3 +236,4 @@ function initData(){
 }
 
 initData();
+

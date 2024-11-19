@@ -3,20 +3,27 @@
 import classes from './PlanetCarousel.module.css';
 import Image from 'next/image';
 import { useState } from 'react';
-import Link from 'next/link';
+
 import Button from '@/UI/button/Button';
 import { RiArrowLeftWideFill } from "react-icons/ri";
 import { RiArrowRightWideFill } from "react-icons/ri";
 import { motion } from 'framer-motion';
+import PlanetCarouselOutput from './PlanetCarouselOutput';
 
 export default function PlanetCarousel({planets}){
     const[selectedPlanet, setSelectedPlanet] = useState(planets[0]);
     const[cardIndex, setCardIndex] = useState(0);
+
+    function handleCardClick(planet, index){
+        setSelectedPlanet(planet);
+        setCardIndex(index);
+    }
+
     
     const handleNext = () => {
         setCardIndex((prevIndex) => {
             const newIndex = (prevIndex + 1) % planets.length;
-            setSelectedPlanet(planets[newIndex]); // Update selected planet
+            setSelectedPlanet(planets[newIndex]); 
             return newIndex;
         });
     };
@@ -24,7 +31,7 @@ export default function PlanetCarousel({planets}){
     const handlePrevious = () => {
         setCardIndex((prevIndex) => {
             const newIndex = (prevIndex - 1 + planets.length) % planets.length;
-            setSelectedPlanet(planets[newIndex]); // Update selected planet
+            setSelectedPlanet(planets[newIndex]); 
             return newIndex;
         });
     };
@@ -33,15 +40,8 @@ export default function PlanetCarousel({planets}){
     return(
         
         <div className={classes.wrapper}>
-            <div className={classes.content}>
-                <Image src={selectedPlanet.image} alt={selectedPlanet.slug} width={selectedPlanet.slug === 'saturn' ? 600 : 300} height={300}/>    
-                <h2 className={classes[selectedPlanet.slug]}>{selectedPlanet.title}</h2>
-                 <p>{selectedPlanet.summary}</p>
-                <div className={classes.buttons}>
-                    <Link href={`/all-planets/${selectedPlanet.slug}`}><Button> More facts about {selectedPlanet.title}</Button></Link>
-                    <Link href='/'><Button textOnly>Home Page</Button></Link>
-                </div>
-            </div>
+
+            <PlanetCarouselOutput selectedPlanet={selectedPlanet}/>
 
             <div className={classes.carouselContainer}>
 
@@ -56,12 +56,13 @@ export default function PlanetCarousel({planets}){
                         // Adjust for seamless wrapping
                         const xOffset = position < planets.length / 2 ? position : position - planets.length;
 
+                        const orderPlanet = index + 1;
                         return(
 
                         <motion.div 
                             key={planet.slug} 
                             className={`${classes.card} ${cardIndex === index ? classes[planet.slug] : ''}`} 
-
+                            onClick={() => handleCardClick(planet, index)}
                             initial={{ opacity: 0, scale: 0.8, x: 0}} 
                             animate={{
                                 opacity: 1,
@@ -71,14 +72,15 @@ export default function PlanetCarousel({planets}){
                             }}
                             transition={{
                                 scale: { duration: 0.5, ease: "easeInOut" },
-                                x: { type: "spring", stiffness: 300, damping: 30 },
+                                x: { type: "spring", stiffness: 200, damping: 30 },
                             }}
                            
                             >
+                            <p className={classes.orderPlanet}>{orderPlanet}</p>    
                             <Image src={planet.image} alt={planet.slug} width={planet.slug === 'saturn' ? 200 : 100} height={100}/>
                             <div className={classes.cardInfo}>
                                 <h3>{planet.title}</h3>
-                                <p>{planet.summary.substring(0, 60)}...</p>
+                                {/* <p>{planet.summary.substring(0, 60)}...</p> */}
                             </div>
                         </motion.div>
                         )
@@ -93,6 +95,14 @@ export default function PlanetCarousel({planets}){
 
 
 // OLD CAROUSEL
+
+// console.log('--------');
+// console.log('index:', index); // Current planet index
+// console.log('planet:', planet.slug); // Current planet index
+// console.log('cardIndex:', cardIndex); // Active planet's index
+// console.log('cardPlanet:', selectedPlanet.slug);
+// console.log('position:', position); // Position of the planet relative to the active planet
+// console.log('xOffset:', xOffset); // The x-offset calculated for each planet
 
 // export default function PlanetCarousel({planets}){
 //     const[selectedPlanet, setSelectedPlanet] = useState(planets[0]);
