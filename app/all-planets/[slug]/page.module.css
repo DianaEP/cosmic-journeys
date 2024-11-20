@@ -1,0 +1,9 @@
+.planetWrapper{
+    width: 100%;
+    margin-top: 3rem;
+}
+
+.planetWrapper h1{
+    text-align: center;
+    margin-bottom: 3rem;
+}

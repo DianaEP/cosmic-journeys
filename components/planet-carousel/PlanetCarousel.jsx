@@ -61,7 +61,7 @@ export default function PlanetCarousel({planets}){
 
                         <motion.div 
                             key={planet.slug} 
-                            className={`${classes.card} ${cardIndex === index ? classes[planet.slug] : ''}`} 
+                            className={`${classes.card} ${cardIndex === index ? planet.slug : ''}`} 
                             onClick={() => handleCardClick(planet, index)}
                             initial={{ opacity: 0, scale: 0.8, x: 0}} 
                             animate={{

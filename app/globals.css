@@ -4,7 +4,7 @@
 
 :root {
   --background: #090909;
-  --color: #f8f2ed;
+  --color: #ccc6c1;
   --color2: #777b7e;
   --color3: #222021;
   --font-family-text: "Poppins", sans-serif;
@@ -42,6 +42,40 @@ a:hover {
 h1, h2, h3 {
   font-family: var(--font-family-title);
   text-transform: uppercase;
+}
+
+/* lines */
+
+.mercury{
+  border-bottom: 2px solid #886f5a;   
+}
+
+.venus{
+  border-bottom: 2px solid #9d5c1f;   
+}
+
+.earth{
+  border-bottom: 2px solid #586943;   
+}
+
+.mars{
+  border-bottom: 2px solid #a24338;   
+}
+
+.jupiter{
+  border-bottom: 2px solid #a38e6f;
+}
+
+.saturn{
+  border-bottom: 2px solid #bdab9d;
+}
+
+.uranus{
+  border-bottom: 2px solid #36a1b6;
+}
+
+.neptune{
+  border-bottom: 2px solid #245d9b;
 }
 
 

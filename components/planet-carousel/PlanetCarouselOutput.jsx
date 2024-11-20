@@ -23,7 +23,7 @@ export default function PlanetCarouselOutput({selectedPlanet}){
                 exit='exit'
             >
                     <Image src={selectedPlanet.image} alt={selectedPlanet.slug} width={selectedPlanet.slug === 'saturn' ? 600 : 300} height={300}/>    
-                    <div className={classes[selectedPlanet.slug]}>
+                    <div className={selectedPlanet.slug}>
                         <h2>{selectedPlanet.title}</h2>
                     </div>
                     <div>

@@ -1,0 +1,50 @@
+.planetDetailsWrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* PlanetAnimation Component */
+.planetAnimationWrapper{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 2rem;
+    row-gap: 3rem;
+}
+
+/* .planetAnimationWrapper img{
+    position: relative;
+    z-index: 3;
+} */
+
+.buttonsWrapper{
+    display: flex;
+    justify-content: center;
+    column-gap: 2rem;
+}
+
+.animationActions{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    row-gap: 2rem;
+}
+
+.animationActions p{
+    color: var(--color2);
+}
+
+.animationActions span{
+    color: var(--color);
+}
+
+
+

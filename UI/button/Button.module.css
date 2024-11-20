@@ -6,7 +6,7 @@
     
     box-shadow: 0 0px 5px 2px var(--color3);
     border:none;
-    padding: 0.7rem 1rem;
+    padding: 0.5rem 0.9rem;
     border-radius: 5px;
     cursor: pointer;
 
@@ -31,3 +31,38 @@
 .buttonText:hover{
     color: var(--color2);
 }
+
+
+.mercury{
+    box-shadow: 0 0px 5px 2px #886f5a;
+    /* color: #886f5a;    */
+  }
+  
+  .venus{
+    box-shadow: 0 0px 5px 2px #9d5c1f;
+  }
+  
+  .earth{
+    box-shadow: 0 0px 5px 2px #586943; 
+  }
+  
+  .mars{
+    box-shadow: 0 0px 5px 2px #a24338;  
+  }
+  
+  .jupiter{
+    box-shadow: 0 0px 5px 2px #a38e6f;
+  }
+  
+  .saturn{
+    box-shadow: 0 0px 5px 2px #bdab9d;
+  }
+  
+  .uranus{
+    box-shadow: 0 0px 5px 2px #36a1b6;
+  }
+  
+  .neptune{
+    box-shadow: 0 0px 5px 2px #245d9b;
+  }
+  
