@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@splinetool/react-spline": "^4.0.0",
     "better-sqlite3": "^11.5.0",
     "framer-motion": "^11.11.17",
     "next": "15.0.3",
