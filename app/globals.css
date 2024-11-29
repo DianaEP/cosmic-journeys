@@ -7,6 +7,8 @@
   --color: #ccc6c1;
   --color2: #777b7e;
   --color3: #222021;
+  --color4: #a24338;
+  --boxShadow: 0 0 10px 5px var(--color3);
   --font-family-text: "Poppins", sans-serif;
   --font-family-title:  "Orbitron", sans-serif;
 }

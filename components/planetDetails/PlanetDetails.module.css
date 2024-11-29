@@ -29,10 +29,11 @@
 
 .facts li{
     list-style-type: none;
+    line-height: 1.7rem;
     padding: 2rem;
-    width: 100%;
+    width: 70%;
     background-color: #22202187;
-    box-shadow: 0 0px 10px 5px var(--color3);
+    box-shadow: var(--boxShadow);
     border-radius: 5px;
     border-left: 2px solid var(--color2);
 

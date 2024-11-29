@@ -1,0 +1,21 @@
+.errorContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2rem;
+    text-align: center;
+    margin: 10rem  20rem;
+    border-radius: 5px;
+    box-shadow: var(--boxShadow);
+    border-bottom: 2px solid #a24338;   
+    padding: 5rem;
+}
+
+.errorContainer h1{
+    color: var(--color4);
+}
+
+.errorContainer p{
+    font-size: 1.1rem;
+    color: var(--color2);
+}

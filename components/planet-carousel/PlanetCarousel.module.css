@@ -100,7 +100,7 @@
     justify-content: center;
     row-gap: 4rem;
     background-color: #22202187;
-    box-shadow: 0 0px 10px 5px var(--color3);
+    box-shadow: var(--boxShadow);
     border-radius: 5px;
     width: 15rem;
     height: 25rem;

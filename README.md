@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cosmic Journeys - Next.js Project
 
-## Getting Started
+Welcome to the **Cosmic Journeys** project! This web application allows users to explore various details about the solar system, including planets and their curiosities.
 
-First, run the development server:
+## Technologies Used
+
+- **Next.js** (App Router): A React framework for building full stack web applications, utilizing the new App Router introduced in Next.js 13 and above.
+- **SQLite**: A lightweight SQL database to store data about the solar system's planets and curiosities.
+- **Framer Motion**: A powerful animation library for React, providing smooth and interactive animations.
+- **Spline**: A tool for creating and rendering interactive 3D models. It is used to display 3D visuals of the planets.
+
+## Installation & Setup
+
+- Make sure you have **Node.js** installed.
+
+- Follow these steps to get the project up and running locally.
+
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+ git clone https://github.com/DianaEP/cosmic-journeys.git
+
+ ```
+
+```bash
+
+ npm install
+
+ ```
+
+```bash
+
+ npm run dev
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

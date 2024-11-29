@@ -1,19 +1,12 @@
-import Link from "next/link";
-import classes from "./page.module.css";
-import Image from "next/image";
+import Home from "@/components/home/Home";
 
-export default function Home() {
+export default function HomePage() {
   console.log('executing');
   
   return (
-    <div className={classes.homePageContainer}>
-      {/* <div>
-        <Image src='/a.png' alt="astronaut" width={400} height={400}/>
-      </div> */}
-      <main className={classes.homeMain}>
-        <div className={classes.emptyContainer}></div>
-        <h1>Journey Through Space</h1>
-        <div className={classes.linkButton}><Link href='/all-planets'>Explore the solar system</Link></div>
+    <div>
+      <main>
+        <Home/>
       </main>
       <footer>
         
