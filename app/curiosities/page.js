@@ -3,10 +3,22 @@
 import Button from '@/UI/button/Button'
 import classes from './page.module.css'
 import FormCuriosity from '@/components/form-curiosity/FormCuriosity';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import { httpGetCuriosities } from '@/lib/http-api';
 
 export default function Curiosities(){
+    const[curiosities, setCuriosities] = useState([]);
     const[isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        async function fetchData(){
+            const data = await httpGetCuriosities();
+            setCuriosities(data)
+        }
+
+        fetchData()
+    },[]);
 
     function handleOpenModal(){
         setIsOpen(true);
@@ -16,7 +28,16 @@ export default function Curiosities(){
         setIsOpen(false)
     }
 
-    console.log(isOpen);
+    function handleAddCuriosity(newCuriosity){
+        setCuriosities((prevCuriosities) => [
+            ...prevCuriosities,
+            newCuriosity
+        ])
+    }
+
+    console.log(curiosities);
+    
+
     
 
     return(
@@ -24,9 +45,17 @@ export default function Curiosities(){
             {!isOpen && (
                 <Button onClick={handleOpenModal} >Add Curiosity</Button>
             )}
-            {isOpen &&(
-                <FormCuriosity open={isOpen} onClose={handleCloseModal}/>
-            )}
+            <AnimatePresence mode='wait'>
+                {isOpen &&(
+                    <FormCuriosity 
+                        open={isOpen} 
+                        onClose={handleCloseModal} 
+                        onAdd={handleAddCuriosity}
+                    />
+                )}
+
+
+            </AnimatePresence>
             <div> Curiosities page</div>
         
         </>
