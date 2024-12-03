@@ -1,4 +1,4 @@
-import { addCuriosity, deleteCuriosity, getCuriosities, updateCuriosity } from "@/lib/curiosities";
+import { addCuriosity, getCuriosities } from "@/lib/curiosities";
 
 // HTTP method handlers
 
@@ -40,54 +40,3 @@ export async function POST(req){
 
 // -----------------------------------------------------------------------
 
-export async function PUT(req){
-    const { id, text } = await req.json();
-    try{
-        const updated = updateCuriosity(id, text);
-
-        if(updated){
-            return new Response(JSON.stringify({id, text}), {
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-        }else{
-            return new Response('Curiosity not found', {
-                status: 404
-            })
-        }
-    }catch(error){
-        return new Response('Something went wrong', {
-            status: 500
-        })
-    }
-}
-
-
-// -------------------------------------------------------------------------------------
-
-export async function DELETE(req){
-    const { id } = await req.json();
-
-    try{
-        const deleted = deleteCuriosity(id);
-
-        if(deleted){
-            return new Response('Curiosity deleted successfully', {
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-        }else{
-            return new Response('Curiosity not found', {
-                status: 404
-            })
-        }
-    }catch(error){
-        return new Response('Something went wrong', {
-            status: 500
-        })
-    }
-}

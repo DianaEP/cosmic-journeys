@@ -1,0 +1,23 @@
+.curiosityItem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.curiosityActions{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+   
+}
+
+.curiosityActions span{
+    font-size: 1.2rem;
+    color: var(--color2);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.curiosityActions span:hover{
+    color: var(--color);
+}

@@ -5,11 +5,15 @@ import classes from './page.module.css'
 import FormCuriosity from '@/components/form-curiosity/FormCuriosity';
 import { useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { httpGetCuriosities } from '@/lib/http-api';
+import { httpDeleteCuriosity, httpGetCuriosities } from '@/lib/http-api';
+import AnimatedList from '@/UI/animated-list/AnimatedList';
+import { RiDeleteBin5Line } from "react-icons/ri";
+import { FaPencil } from "react-icons/fa6";
 
 export default function Curiosities(){
     const[curiosities, setCuriosities] = useState([]);
     const[isOpen, setIsOpen] = useState(false);
+    const[editingCuriosity, setEditingCuriosity] = useState(null);
 
     useEffect(() => {
         async function fetchData(){
@@ -20,12 +24,15 @@ export default function Curiosities(){
         fetchData()
     },[]);
 
-    function handleOpenModal(){
+    function handleOpenModal(curiosity=null){
+        console.log('Opening modal with curiosity:', curiosity);
+        setEditingCuriosity(curiosity)
         setIsOpen(true);
     }
 
     function handleCloseModal(){
-        setIsOpen(false)
+        setIsOpen(false);
+        setEditingCuriosity(null)
     }
 
     function handleAddCuriosity(newCuriosity){
@@ -35,15 +42,37 @@ export default function Curiosities(){
         ])
     }
 
-    console.log(curiosities);
+    function handleUpdateCuriosity(updatedCuriosity){
+        setCuriosities((prevCuriosities) => 
+            prevCuriosities.map((curiosity) => 
+                curiosity.id === updatedCuriosity.id ? updatedCuriosity : curiosity
+            )
+        )    
+    }
+
+    async function handleDeleteCuriosity(id){
+        try {
+            const deletedCuriosity = await httpDeleteCuriosity(id);
+            if (deletedCuriosity) {
+                setCuriosities((prevCuriosities) =>
+                    prevCuriosities.filter((curiosity) => curiosity.id !== id)
+                );
+            }
+        } catch (error) {
+            console.error('Error deleting curiosity:', error);
+        }
+    }
+
+    // console.log(curiosities);
     
+    // const curiositiesText = curiosities.map((curiosity) => curiosity.text)
 
     
 
     return(
         <>
             {!isOpen && (
-                <Button onClick={handleOpenModal} >Add Curiosity</Button>
+                <Button onClick={() => handleOpenModal(null)} >Add Curiosity</Button>
             )}
             <AnimatePresence mode='wait'>
                 {isOpen &&(
@@ -51,12 +80,31 @@ export default function Curiosities(){
                         open={isOpen} 
                         onClose={handleCloseModal} 
                         onAdd={handleAddCuriosity}
+                        onUpdate={handleUpdateCuriosity}
+                        editingCuriosity={editingCuriosity}
                     />
                 )}
 
 
             </AnimatePresence>
             <div> Curiosities page</div>
+
+            <div>
+                <AnimatedList 
+                    isVisible={true} 
+                    items={curiosities}
+                    renderItem={(item) => (
+                        <div className={classes.curiosityItem}>
+                            <p>{item.text}</p>
+                            <div className={classes.curiosityActions}>
+                                <span onClick={() => handleDeleteCuriosity(item.id)}><RiDeleteBin5Line /></span>
+                                <span onClick={() => handleOpenModal(item)}><FaPencil /></span>
+                            </div>
+                        </div>
+                    )}
+                />
+
+            </div>
         
         </>
     )

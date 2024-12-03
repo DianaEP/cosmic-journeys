@@ -3,8 +3,9 @@
 import PlanetAnimation from './PlanetAnimation';
 import classes from './PlanetDetails.module.css';
 import { IoMdArrowDropup } from "react-icons/io";
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
+import AnimatedList from '@/UI/animated-list/AnimatedList';
 
 
 
@@ -20,20 +21,7 @@ export default function PlanetDetails({planet}){
         setIsVisible(prevState => !prevState);
     }
 
-   
-    const staggerContainer = {
-        initial: {opacity: 0},
-        animate: {opacity: 1 , transition : {staggerChildren: 0.5 }},
-        exit:{opacity: 0},
-        child: {
-            initial: { opacity: 0, y: 10},
-            animate: { opacity: 1, y: 0, transition: {duration: 0.5}},
-            exit: {opacity: 0}
-        }
-    }
 
-    
-    
     return(
         <div className={classes.planetDetailsWrapper}>
            <PlanetAnimation planet={planet}/>
@@ -49,28 +37,8 @@ export default function PlanetDetails({planet}){
                         <IoMdArrowDropup />
                     </motion.span>
                 </div>
-                
-                <AnimatePresence mode='wait'>
-                    {isVisible && (
-                        <motion.ul
-                            variants={staggerContainer}
-                            initial='initial'
-                            animate='animate'
-                            exit='exit'
-                        >
-                            {facts.map((fact) => (
-                                 <motion.li 
-                                    key={fact} 
-                                    className={classes.fact}
-                                    variants={staggerContainer.child}
-                                >
-                                    {fact}
-                                </motion.li>
-                            ))}
-
-                        </motion.ul>
-                    )}
-                </AnimatePresence>
+                <AnimatedList items={facts} isVisible={isVisible}/>
+               
            </div>
         </div>
     )
