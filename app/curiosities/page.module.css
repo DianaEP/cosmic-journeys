@@ -1,7 +1,41 @@
+.curiosityHeader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 2rem;
+    margin: 3rem 2rem 4rem;
+}
+
+.curiosityHeader h1{
+    text-align: center;
+}
+
+.curiosityHeader p{
+    text-align: center;
+    padding: 0 4rem;
+    color: var(--color2);
+
+}
+
+.movingImage{
+    position: fixed;
+    top: 250px;
+    left: 100px;
+}
+
+
+
+/* list */
 .curiosityItem{
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.curiosityItem p{
+    text-align: justify;
+    margin-right: 1.8rem;
 }
 
 .curiosityActions{

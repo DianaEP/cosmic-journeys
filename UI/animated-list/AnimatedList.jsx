@@ -14,7 +14,7 @@ export default function AnimatedList({items, isVisible, renderItem}){
     }
 
     return(
-        <AnimatePresence mode='wait'>
+        <AnimatePresence mode='wait' >
         {isVisible && (
             <motion.ul
                 className={classes.listItems}
@@ -23,11 +23,13 @@ export default function AnimatedList({items, isVisible, renderItem}){
                 animate='animate'
                 exit='exit'
             >
-                {items.map((item, index) => (
+                {items.map((item,index) => (
                      <motion.li 
-                        key={index} 
+                        key={item.id || index} 
                         className={classes.listItem}
                         variants={staggerContainer.child}
+                        layout
+                        exit={{ opacity: 0 }}
                     >
                         {renderItem ? renderItem(item) : item}
                     </motion.li>

@@ -1,11 +1,12 @@
 import { deleteCuriosity, updateCuriosity } from "@/lib/curiosities";
 
-export async function PUT(req,{params}){
+export async function PUT(req,context){
     try{
-        
-        const{ id } = params;
-        const { text } = await req.json();
-       
+        const params = await context.params;
+        const { id } = params;
+        const body = await req.json();
+        const { text } = body;
+
         const updated = updateCuriosity(id, text);
 
         if(updated){
@@ -30,9 +31,10 @@ export async function PUT(req,{params}){
 
 // -------------------------------------------------------------------------------------
 
-export async function DELETE(req, { params }){
-    // const { id } = await req.json();
-    const{ id } = params;
+export async function DELETE(req, context){
+    
+    const params = await context.params;
+    const { id } = params;
 
     try{
         const deleted = deleteCuriosity(id);

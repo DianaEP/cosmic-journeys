@@ -4,7 +4,7 @@ import Button from '@/UI/button/Button'
 import classes from './FormCuriosity.module.css'
 import Modal from '@/UI/modal/Modal'
 import { useEffect, useState } from 'react'
-import { httpPostCuriosity, httpPutCuriosity } from '@/lib/http-api'
+import { httpGetCuriosities, httpPostCuriosity, httpPutCuriosity } from '@/lib/http-api'
 
 
 
@@ -25,12 +25,19 @@ export default function FormCuriosity({open, onClose, onAdd, onUpdate, editingCu
     async function handleSubmit(e){
         e.preventDefault();
         if(text.trim() !== ''){
-            console.log('editingCuriosity', editingCuriosity); 
+            console.log('Submitting with editingCuriosity:', editingCuriosity);
             if(editingCuriosity){
-                const updatedCuriosity = await httpPutCuriosity(editingCuriosity.id, text);
-                console.log('Updated curiosity:', updatedCuriosity);
-                if(updatedCuriosity){
-                    onUpdate(updatedCuriosity);
+                const optimisticUpdate = { ...editingCuriosity, text };
+                onUpdate(optimisticUpdate);
+                try{
+                    const updatedCuriosity = await httpPutCuriosity(editingCuriosity.id, text);
+                    if(!updatedCuriosity){
+                        console.error('Update failed or returned null');
+                    }
+
+                }catch(error){
+                    console.error('Error during update:', error);
+                    onUpdate({ ...editingCuriosity, text: editingCuriosity.text })
                 }
             }else{
                 const newCuriosity = await httpPostCuriosity(text);
