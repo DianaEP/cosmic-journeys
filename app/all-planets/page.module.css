@@ -13,3 +13,9 @@
     text-align: center;
     margin-top: 2rem;
 }
+
+@media(max-height: 800px){
+  .allPlanetsContainer h1{
+    margin-bottom: 4rem;
+}
+}

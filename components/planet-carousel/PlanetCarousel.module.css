@@ -88,6 +88,7 @@
     height:70vh;
     /* column-gap: 2rem; */
     overflow-x: hidden;
+    /* overflow-y: hidden; */
     position: relative;
     /* width: auto;  */
     
@@ -141,7 +142,14 @@
 } */
 
 
-
+@media(max-height: 800px){
+    .wrapper{
+        padding-bottom: 4rem;
+    }
+    .carousel{
+        height: 100vh;
+    }
+}
 
 
 
